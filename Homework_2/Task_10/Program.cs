@@ -14,27 +14,11 @@ class Program
         int number = Convert.ToInt32(Console.ReadLine());
         if (number < 100 || number > 999)
         {
-            Console.WriteLine("Ошибка! Введенные данные не верны.");
+            Console.WriteLine("Ошибка! Введено не трёхзначное число.");
             return;
         }
-        
-        while (number > 10)
-        {
-            number = number / 10;
-
-            if (number < 100)
-            {
-                while (number > 10)
-                {
-                    number = number - 10;
-                    if (number < 10)
-                    {
-                        Console.WriteLine("Вторая (с начала) цифра: " + number);
-                    }
-                }
-            }
-        }
-        
-        Console.WriteLine("Готово!");
+        number = number % 100;
+        number = number / 10;
+        Console.WriteLine("Вторая цифра: " + number);
     }
 }
